@@ -1,16 +1,16 @@
 {
   "private": true,
-  "displayName": "Plugin Name",
-  "name": "homebridge-plugin-name",
+  "displayName": "Grandstream Remote Door Opener",
+  "name": "GSDoorOpener",
   "version": "1.0.0",
-  "description": "A short description about what your plugin does.",
+  "description": "Remotly Open GrandStream GDS3710 Doors",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME.git"
+    "url": "https://github.com/iamabd/GSDoorOpener"
   },
   "bugs": {
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME/issues"
+    "url": "https://github.com/iamabd/GSDoorOpener"
   },
   "engines": {
     "node": "^18.17.0",
@@ -36,6 +36,9 @@
     "nodemon": "^2.0.22",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "https": "^1.0.0",
+    "xml2js": "^0.6.2",
+    "crypto": "^1.0.1"
   }
 }
