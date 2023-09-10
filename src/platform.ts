@@ -2,26 +2,34 @@ import { Service, PlatformAccessory, Characteristic, API } from 'homebridge';
 import { MyDoorOpenerAccessory } from './accessories/MyDoorOpenerAccessory';
 
 class GSDoorOpenerPlatform {
-  // ... (existing code)
+  private readonly accessories: PlatformAccessory[] = [];
+
+  constructor(
+    private readonly log: any,
+    private readonly config: any,
+    private readonly api: API,
+  ) {
+    this.log = log;
+    this.config = config;
+    this.api = api;
+
+    // Initialize your plugin here
+    this.initializePlugin();
+  }
 
   initializePlugin() {
-    const accessory = new MyDoorOpenerAccessory(this.log, this.config, {
-      Service: this.Service,
-      Characteristic: this.Characteristic
-    });
+    const accessory = new MyDoorOpenerAccessory(this.log, this.config);
 
     const accessoryInfo = new this.api.platformAccessory('Your Door', accessory.UUID);
     accessoryInfo.context.device = accessory;
 
     this.accessories.push(accessoryInfo);
-  }
 
-  // ... (existing code)
+    this.api.publishExternalAccessories('GSDoorOpener', this.accessories);
+  }
 }
 
 module.exports = (api: API) => {
-  Service = api.hap.Service;
-  Characteristic = api.hap.Characteristic;
-
   api.registerPlatform('GSDoorOpener', 'GSDoorOpenerPlatform', GSDoorOpenerPlatform);
 };
+

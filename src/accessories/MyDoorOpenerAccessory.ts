@@ -63,8 +63,8 @@ export class MyDoorOpenerAccessory {
 
   getServices() {
     const informationService = new this.Service.AccessoryInformation()
-      .setCharacteristic(this.Characteristic.Manufacturer, 'Your Manufacturer')
-      .setCharacteristic(this.Characteristic.Model, 'Your Model')
+      .setCharacteristic(this.Characteristic.Manufacturer, 'GrandStream')
+      .setCharacteristic(this.Characteristic.Model, 'GDS3710')
       .setCharacteristic(this.Characteristic.SerialNumber, '123-456-789');
 
     const doorService = new this.Service.GarageDoorOpener('Your Door')
